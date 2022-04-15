@@ -1,17 +1,19 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+// Function to return a string depending on licenses selected
+function displayLicense(array){
+  const licenses = array;
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+  if (licenses === null) {
+    return `No licenses available for this application.`;
+  } else if (licenses.length === 1){
+    return `The following license applies to this application: ${licenses[0]}.`
+  }
+  else {
+    return `The following licenses apply to this application: ${displayArray(licenses)}`
+  }
+}
 
 // Function to return array of communication methods as a string with comma separators
-function listCommunication(array){
+function displayArray(array){
   // if the array only has one element, return that element without commas, otherwise return a string of elements with comma separators
   if(array.length === 1){
     return array[0];
@@ -20,8 +22,7 @@ function listCommunication(array){
   return `${array.join(", ")}`;
 }
 
-
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown with user inputs
 function generateMarkdown(data) {
   return `
   # ${data.title}
@@ -47,13 +48,13 @@ function generateMarkdown(data) {
   ${data.contribution}
 
   ## **Licenses**
-  ${data.licenses}
+  ${displayLicense(data.licenses)}
 
   ## **Tests**
   ${data.tests}
 
   ## **Contact**
-  Feel free to contact me through the following methods if you like what you see and/or have any questions regarding this application: ${listCommunication(data.communication)}.
+  Feel free to contact me through the following method(s) if you like what you see and/or have any questions regarding this application: ${displayArray(data.communication)}.
 
   - My GitHub username is: [${data.github}](https://github.com/${data.github})
   - My email is: [${data.email}](mailto:${data.email})
