@@ -10,11 +10,21 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+const testFunction = (x, y) => {
+  return x + y;
+};
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(`function was called correctly. This is the title ${data.title}`);
+  // console.log(`function was called correctly. This is the title ${data.title}`);
 
-  return `# ${data.title}`;
+  return `# ${data.title}
+  
+  ## **Description**
+  ${data.description}
+  
+  ## Testing a function
+  ${testFunction(1, 2)}`;
 }
 
 module.exports = generateMarkdown;
