@@ -52,13 +52,18 @@ function init() {
                 type: "checkbox",
                 name: "communication",
                 message: "Please indicate your preferred method of communication. Select all that apply.",
-                choices: ["GitHub", "Email", "Snail mail", "Morse code"]
+                choices: ["GitHub", 
+                "Email", 
+                "Snail mail", 
+                "Morse code"]
             },
             {
                 type: "checkbox",
                 name: "licenses",
                 message: "Please indicate which licenses apply to your project.",
-                choices: ["MIT License", "GNU General Public License v3.0", "Apache License 2.0"]
+                choices: ["MIT License", 
+                "GNU General Public License v3.0", 
+                "Apache License 2.0"]
             }
         ])
         .then((data) => {

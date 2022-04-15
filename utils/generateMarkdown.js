@@ -10,21 +10,54 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-const testFunction = (x, y) => {
-  return x + y;
-};
+// Function to return array of communication methods as a string with comma separators
+function listCommunication(array){
+  // if the array only has one element, return that element without commas, otherwise return a string of elements with comma separators
+  if(array.length === 1){
+    return array[0];
+  }
+  
+  return `${array.join(", ")}`;
+}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  // console.log(`function was called correctly. This is the title ${data.title}`);
-
-  return `# ${data.title}
+  return `
+  # ${data.title}
   
   ## **Description**
   ${data.description}
   
-  ## Testing a function
-  ${testFunction(1, 2)}`;
+  ## **Table of Contents**
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributions](#contributions)
+  - [Licenses](#licenses)
+  - [Tests](#tests)
+  - [Contact](#contact)
+
+  ## **Installation**
+  ${data.installation}
+
+  ## **Usage**
+  ${data.usage}
+
+  ## **Contributions**
+  ${data.contribution}
+
+  ## **Licenses**
+  ${data.licenses}
+
+  ## **Tests**
+  ${data.tests}
+
+  ## **Contact**
+  Feel free to contact me through the following methods if you like what you see and/or have any questions regarding this application: ${listCommunication(data.communication)}.
+
+  - My GitHub username is: [${data.github}](https://github.com/${data.github})
+  - My email is: [${data.email}](mailto:${data.email})
+`;
 }
 
 module.exports = generateMarkdown;
